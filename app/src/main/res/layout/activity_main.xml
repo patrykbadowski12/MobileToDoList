@@ -23,7 +23,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_margin="10dp">
 
             <com.example.todolist.NoScrollListView
                 android:id="@+id/task_list_view"
@@ -36,15 +37,36 @@
                 android:id="@+id/editText2"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:layout_below="@id/task_list_view"
+                android:inputType="textPersonName"
+                android:onClick="addTask"
                 android:text="Name" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/editText2"/>
+
+            <DatePicker
+                android:id="@+id/simpleDatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:layout_below="@id/timePicker"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:datePickerMode="spinner"/>
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
-                android:layout_below="@id/editText2"
+                android:layout_below="@id/simpleDatePicker"
+                android:onClick="addTask"
                 android:text="Button" />
 
         </RelativeLayout>
