@@ -1,8 +1,9 @@
 package com.example.todolist;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Task {
+public class Task implements Serializable {
     private String content;
     private Date date;
     private boolean done;

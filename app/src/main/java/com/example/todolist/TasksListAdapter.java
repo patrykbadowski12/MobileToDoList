@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class TasksListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<Task> tasksList;
+    private CheckBox checkBox;
 
     public TasksListAdapter(Context context, ArrayList<Task> tasksList) {
         this.context = context;
@@ -46,11 +48,11 @@ public class TasksListAdapter extends BaseAdapter {
 
         TextView textViewTaskContent = convertView.findViewById(R.id.text_view_item_content);
         TextView textViewTaskDate = convertView.findViewById(R.id.text_view_item_date);
-        View viewTaskDone = convertView.findViewById(R.id.text_view_item_done);
+        checkBox = convertView.findViewById(R.id.text_view_item_done);
 
         textViewTaskContent.setText(currentTask.getContent());
         textViewTaskDate.setText(currentTask.getDate().toString().substring(0,16));
-        viewTaskDone.setActivated(currentTask.isDone());
+        checkBox.setChecked(currentTask.isDone());
 
         return convertView;
     }

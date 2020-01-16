@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/task_list_view"
                 android:inputType="textPersonName"
-                android:onClick="addTask"
                 android:text="Name" />
 
             <TimePicker
@@ -68,6 +67,14 @@
                 android:layout_below="@id/simpleDatePicker"
                 android:onClick="addTask"
                 android:text="Button" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/button"
+                android:text="Delete tasks" />
 
         </RelativeLayout>
 
