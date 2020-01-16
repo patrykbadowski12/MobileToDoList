@@ -27,6 +27,7 @@
             android:layout_margin="10dp">
 
             <com.example.todolist.NoScrollListView
+                android:descendantFocusability="blocksDescendants"
                 android:id="@+id/task_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,9 +38,10 @@
                 android:id="@+id/editText2"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_below="@id/task_list_view"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Task" />
 
             <TimePicker
                 android:id="@+id/timePicker"
@@ -74,7 +76,8 @@
                 android:layout_height="69dp"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/button"
-                android:text="Delete tasks" />
+                android:onClick="deleteDoneTasks"
+                android:text="Delete done tasks" />
 
         </RelativeLayout>
 

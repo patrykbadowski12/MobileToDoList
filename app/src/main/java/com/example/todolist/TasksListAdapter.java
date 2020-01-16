@@ -38,7 +38,6 @@ public class TasksListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
                     inflate(R.layout.layout_list_view_row_items, parent, false);
@@ -48,12 +47,13 @@ public class TasksListAdapter extends BaseAdapter {
 
         TextView textViewTaskContent = convertView.findViewById(R.id.text_view_item_content);
         TextView textViewTaskDate = convertView.findViewById(R.id.text_view_item_date);
-        checkBox = convertView.findViewById(R.id.text_view_item_done);
+        CheckBox viewById = convertView.findViewById(R.id.text_view_item_done);
 
         textViewTaskContent.setText(currentTask.getContent());
         textViewTaskDate.setText(currentTask.getDate().toString().substring(0,16));
-        checkBox.setChecked(currentTask.isDone());
+        viewById.setChecked(currentTask.isDone());
 
         return convertView;
     }
+
 }
