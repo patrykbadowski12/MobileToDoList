@@ -1,11 +1,13 @@
 package com.example.todolist;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,11 +16,13 @@ public class TasksListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<Task> tasksList;
-    private CheckBox checkBox;
+    private SharedPreferences sharedPreferences;
 
     public TasksListAdapter(Context context, ArrayList<Task> tasksList) {
         this.context = context;
         this.tasksList = tasksList;
+        sharedPreferences = context.getApplicationContext().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+
     }
 
     @Override
@@ -37,7 +41,7 @@ public class TasksListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
                     inflate(R.layout.layout_list_view_row_items, parent, false);
@@ -52,6 +56,13 @@ public class TasksListAdapter extends BaseAdapter {
         textViewTaskContent.setText(currentTask.getContent());
         textViewTaskDate.setText(currentTask.getDate().toString().substring(0,16));
         viewById.setChecked(currentTask.isDone());
+        viewById.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                tasksList.get(position).setDone(isChecked);
+                MainActivity.saveTasks(tasksList, sharedPreferences);
+            }
+        });
 
         return convertView;
     }
