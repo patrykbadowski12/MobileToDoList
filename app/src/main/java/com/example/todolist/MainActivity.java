@@ -3,13 +3,9 @@ package com.example.todolist;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,9 +19,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -76,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 for (Task task : taskArray) {
                     Timestamp taskTime = new Timestamp(task.getDate().getTime());
                     taskTime.setYear(taskTime.getYear()-1900);
-                    if (taskTime.getTime() < nowPlus2.getTime() && !(taskTime.getTime() < now.getTime()) && !task.isSendedNotification() && !task.isDone()){
-                        task.setSendedNotification(true);
+                    if (taskTime.getTime() < nowPlus2.getTime() && !(taskTime.getTime() < now.getTime()) && !task.isSentNotification() && !task.isDone()){
+                        task.setSentNotification(true);
                         pushNotification(task);
                     }
                 }

@@ -7,15 +7,15 @@ public class Task implements Serializable {
     private String content;
     private Date date;
     private boolean done;
-    private boolean sendedNotification;
+    private boolean sentNotification;
 
     public Task() {}
 
-    public Task(String content, Date date, boolean done, boolean sendedNotification) {
+    public Task(String content, Date date, boolean done, boolean sentNotification) {
         this.content = content;
         this.date = date;
         this.done = done;
-        this.sendedNotification = sendedNotification;
+        this.sentNotification = sentNotification;
     }
 
     public String getContent() {
@@ -42,12 +42,12 @@ public class Task implements Serializable {
         this.done = done;
     }
 
-    public boolean isSendedNotification() {
-        return sendedNotification;
+    public boolean isSentNotification() {
+        return sentNotification;
     }
 
-    public void setSendedNotification(boolean sendedNotification) {
-        this.sendedNotification = sendedNotification;
+    public void setSentNotification(boolean sentNotification) {
+        this.sentNotification = sentNotification;
     }
 
     @Override

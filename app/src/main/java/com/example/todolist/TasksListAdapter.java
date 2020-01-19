@@ -18,7 +18,7 @@ public class TasksListAdapter extends BaseAdapter {
     private ArrayList<Task> tasksList;
     private SharedPreferences sharedPreferences;
 
-    public TasksListAdapter(Context context, ArrayList<Task> tasksList) {
+    TasksListAdapter(Context context, ArrayList<Task> tasksList) {
         this.context = context;
         this.tasksList = tasksList;
         sharedPreferences = context.getApplicationContext().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
